@@ -1,25 +1,23 @@
 /*
-  Hoja de estilos principal para FlexiCapital
-
-  Define variables de color, resets básicos y estilos para la
-  estructura general del sitio, incluida la cabecera, secciones de
-  contenido, tarjetas de productos, formulario de contacto y pie de
-  página. Incluye reglas responsivas para optimizar la visualización
-  en dispositivos móviles.
+  Estilos principales para el sitio de FlexiCapital.
+  Esta hoja define una paleta de colores inspirada en el logotipo de la marca
+  (azul oscuro y turquesa), además de componentes responsivos para
+  encabezado, secciones, formularios y pie de página. Su objetivo es brindar
+  una experiencia visual moderna y confiable.
 */
 
 /* Variables de color y tipografía */
 :root {
-  --primary: #b80c26; /* Rojo principal de la marca */
-  --primary-dark: #93091e; /* Versión más oscura para hover */
-  --secondary: #0d0d0d; /* Gris muy oscuro casi negro */
-  --light: #f7f7f7; /* Fondo claro para secciones alternas */
+  --primary: #0a3b59;        /* Azul oscuro de la marca */
+  --accent: #0091b4;         /* Turquesa complementario */
+  --light-bg: #f5f9ff;       /* Fondo claro para secciones */
   --white: #ffffff;
-  --text: #333333;
+  --text-dark: #333333;
+  --shadow: rgba(0, 0, 0, 0.1);
 }
 
-/* Reset básico para evitar inconsistencias entre navegadores */
-*, *::before, *::after {
+/* Reset básico */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -27,358 +25,359 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  color: var(--text);
+  color: var(--text-dark);
   background-color: var(--white);
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
-/* Contenedor centralizado */
+a {
+  color: inherit;
+}
+
+/* Contenedor global */
 .container {
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-/* Encabezado y navegación */
+/* Encabezado */
 header {
+  background-color: var(--white);
   position: sticky;
   top: 0;
   width: 100%;
-  background: var(--white);
   z-index: 1000;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px var(--shadow);
 }
 
 .header-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
 }
 
-.logo {
-  font-size: 1.75rem;
-  font-weight: 700;
-  /* Alineación del logotipo cuando se usa una imagen */
-  display: flex;
-  align-items: center;
-}
-/* Ajusta las clases de texto previamente utilizadas en el logotipo para que no ocupen espacio */
-.logo .flexi,
-.logo .capital {
-  display: none;
-}
-
-/* Imagen del logotipo */
 .logo-img {
-  height: 48px;
-  width: auto;
-}
-
-/* Variante para el pie de página (un poco más pequeña) */
-.footer-logo .logo-img {
-  height: 56px;
+  height: 50px;
   width: auto;
 }
 
 .navigation ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
-}
-.navigation a {
-  text-decoration: none;
-  color: var(--secondary);
-  font-weight: 500;
-  transition: color 0.3s;
-}
-.navigation a:hover {
-  color: var(--primary);
+  align-items: center;
+  gap: 1.5rem;
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: var(--secondary);
-  cursor: pointer;
+.navigation a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--primary);
+  transition: color 0.3s;
+}
+
+.navigation a:hover {
+  color: var(--accent);
 }
 
 /* Sección Hero */
 .hero {
-  position: relative;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: var(--white);
   min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--white);
-  /* Use the hero image stored in the root directory of the repository */
-  background: url('hero.png') center/cover no-repeat;
 }
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
+
 .hero-content {
-  position: relative;
-  z-index: 2;
   max-width: 700px;
-  padding: 3rem 1rem;
+  padding: 2rem 1rem;
 }
+
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
+
 .hero p {
   font-size: 1.125rem;
   margin-bottom: 2rem;
 }
 
-/* Botones */
-.btn, .btn-secondary {
+.btn {
   display: inline-block;
+  background: var(--accent);
+  color: var(--white);
   padding: 0.75rem 1.5rem;
   border-radius: 30px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s, color 0.3s;
+  font-weight: 600;
+  transition: background 0.3s;
 }
-.btn {
-  background: var(--primary);
-  color: var(--white);
-}
+
 .btn:hover {
-  background: var(--primary-dark);
-}
-.btn-secondary {
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  background: transparent;
-}
-.btn-secondary:hover {
   background: var(--primary);
-  color: var(--white);
 }
 
-/* Sección Sobre Nosotros */
-.about {
+/* Sección Simulador */
+.simulator {
+  background: var(--light-bg);
   padding: 4rem 0;
-}
-.about h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: var(--secondary);
-}
-.about p {
-  max-width: 800px;
-  margin: 0 auto 1rem auto;
-  text-align: center;
 }
 
-/* Sección de Productos */
-.products {
-  background: var(--light);
-  padding: 4rem 0;
+.simulator h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
 }
-.products h2 {
+
+.simulator .sim-desc {
   text-align: center;
   margin-bottom: 2rem;
-  color: var(--secondary);
+  color: var(--text-dark);
 }
-.product-grid {
+
+.sim-container {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow);
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.sim-container label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+.result {
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Sección Testimonios */
+.testimonials {
+  padding: 4rem 0;
+}
+
+.testimonials h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.testimonial-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
 }
-.product-card {
-  background: var(--white);
-  border: 1px solid var(--primary);
+
+.testimonial-card {
+  background: var(--light-bg);
+  padding: 1.5rem;
   border-radius: 8px;
-  padding: 2rem;
-  text-align: center;
-  flex: 1 1 280px;
-  max-width: 340px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  max-width: 350px;
+  box-shadow: 0 4px 12px var(--shadow);
 }
-.product-card .icon {
-  /* El contenedor de iconos se utiliza para centrado y separación. */
+
+.testimonial-card p {
   margin-bottom: 1rem;
+  font-style: italic;
 }
 
-/* Ajustes específicos para los iconos de imagen dentro de las tarjetas */
-.product-card .icon img {
-  display: inline-block;
-  width: 64px;
-  height: 64px;
-}
-}
-.product-card h3 {
-  margin-bottom: 0.75rem;
-  color: var(--secondary);
-}
-.product-card p {
-  margin-bottom: 1.5rem;
-  color: var(--text);
+.testimonial-card h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  font-weight: 600;
 }
 
-/* Sección de Contacto */
-.contact {
-  background: var(--light);
+.stars i {
+  color: #f5c518; /* color de estrellas doradas */
+  margin-right: 0.1rem;
+}
+
+/* Sección Requisitos */
+.requirements {
+  background: var(--light-bg);
   padding: 4rem 0;
 }
+
+.requirements h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.requirements ul {
+  list-style: none;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.requirements li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.requirements li::before {
+  content: '\f00c'; /* Font Awesome check icon (fa-check) */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+}
+
+.req-note {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--text-dark);
+  font-style: italic;
+}
+
+/* Sección Contacto */
+.contact {
+  padding: 4rem 0;
+}
+
 .contact h2 {
   text-align: center;
-  margin-bottom: 1rem;
-  color: var(--secondary);
+  color: var(--primary);
+  margin-bottom: 1.5rem;
 }
-.contact p {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 2rem auto;
-}
-.contact-form {
-  max-width: 500px;
+
+.contact form {
+  background: var(--light-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--shadow);
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-.form-group label {
+
+.contact form label {
   font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: var(--secondary);
 }
-.form-group input,
-.form-group textarea {
+
+.contact form input,
+.contact form textarea,
+.contact form select {
   padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
   font-size: 1rem;
-  font-family: inherit;
 }
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(184, 12, 38, 0.2);
-}
-.form-group textarea {
+
+.contact form textarea {
   resize: vertical;
 }
 
-/* Pie de Página */
-footer {
-  background: var(--secondary);
+.contact form button {
+  background: var(--accent);
   color: var(--white);
-  padding: 3rem 0 1rem 0;
-}
-.footer-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.footer-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-.footer-logo .flexi {
-  color: var(--primary);
-}
-.footer-links ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-.footer-links a {
-  color: var(--white);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-.footer-links a:hover {
-  color: var(--primary);
-}
-.footer-contact p {
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-.footer-contact a {
-  color: var(--white);
-  text-decoration: none;
-}
-.footer-contact a:hover {
-  text-decoration: underline;
-}
-footer .copyright {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 2rem;
-  padding-top: 1rem;
-  text-align: center;
-  font-size: 0.875rem;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-/* Responsividad para pantallas pequeñas */
+.contact form button:hover {
+  background: var(--primary);
+}
+
+/* Pie de página */
+footer {
+  background: var(--primary);
+  color: var(--white);
+  padding: 2rem 1rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.footer-logo-img {
+  height: 56px;
+  width: auto;
+}
+
+.footer-tagline {
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.footer-info p {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .navigation {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 1rem;
-    background: var(--white);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    z-index: 999;
-  }
-  .navigation.open {
-    display: block;
-  }
   .navigation ul {
+    display: none;
+  }
+  /* Simple mobile nav toggle could be added here if desired */
+  .header-container {
     flex-direction: column;
-    gap: 0;
-  }
-  .navigation li {
-    border-bottom: 1px solid #eee;
-  }
-  .navigation li:last-child {
-    border-bottom: none;
-  }
-  .navigation a {
-    display: block;
-    padding: 0.75rem 1.5rem;
-  }
-  .menu-toggle {
-    display: block;
+    align-items: flex-start;
   }
   .hero h1 {
     font-size: 2rem;
   }
-  .hero p {
-    font-size: 1rem;
-  }
-  .product-grid {
+  .testimonial-grid {
     flex-direction: column;
     align-items: center;
   }
-  .product-card {
-    max-width: 90%;
-  }
-  .footer-grid {
+  .footer-container {
     flex-direction: column;
-    align-items: flex-start;
+    text-align: center;
+    gap: 1rem;
   }
 }
