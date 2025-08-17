@@ -115,7 +115,8 @@ header {
   justify-content: center;
   text-align: center;
   color: var(--white);
-  background: url('images/hero.png') center/cover no-repeat;
+  /* Use the hero image stored in the root directory of the repository */
+  background: url('hero.png') center/cover no-repeat;
 }
 .hero-overlay {
   position: absolute;
