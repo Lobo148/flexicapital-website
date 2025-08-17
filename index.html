@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      Sitio web de FlexiCapital
+
+      Este documento define la estructura de la página de aterrizaje para
+      FlexiCapital. Incluye una navegación fija, una sección de héroe
+      atractiva, secciones de información sobre la empresa, productos
+      de inversión diarios y semanales, un formulario de contacto y
+      un pie de página. Los estilos se cargan desde style.css y las
+      interacciones básicas están definidas en scripts.js.
+    -->
+    <title>FlexiCapital</title>
+    <!-- Fuentes de Google para tipografías modernas y legibles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Iconos de Font Awesome para representar conceptos visuales -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-hlKpJRNGVwPfhR6FTCXWQlIGiJ1M/UBe5UcyJClQxBP0YGz5nyKNpv9b+uPcrSk1QUV4AIwvxD8cqg+cs4bJuw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--
+      Encabezado con navegación. La clase "container" centra el contenido
+      y aplica márgenes consistentes. La navegación responde a
+      resoluciones pequeñas mediante scripts.js.
+    -->
+    <header id="top">
+      <div class="container header-container">
+        <div class="logo">
+          <!-- Logo oficial de la empresa -->
+          <img
+            src="images/logo.jpeg"
+            alt="Logotipo FlexiCapital"
+            class="logo-img"
+          />
+        </div>
+        <nav class="navigation" aria-label="Navegación principal">
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Abrir menú">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Sección hero: imagen de fondo y mensaje de bienvenida -->
+      <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+          <h1>Impulsamos tu crecimiento financiero</h1>
+          <p>
+            FlexiCapital es tu socio estratégico para maximizar el rendimiento de
+            tu inversión con soluciones flexibles y transparentes.
+          </p>
+          <a href="#productos" class="btn">Conoce nuestros productos</a>
+        </div>
+      </section>
+
+      <!-- Sección sobre nosotros -->
+      <section id="nosotros" class="about">
+        <div class="container">
+          <h2>Sobre Nosotros</h2>
+          <p>
+            FlexiCapital nació con la misión de acercar a nuestros clientes a
+            oportunidades de inversión seguras y accesibles. Nuestro equipo de
+            profesionales combina experiencia y pasión para ofrecer un
+            servicio de calidad, respaldado por transparencia y compromiso.
+          </p>
+          <p>
+            Basamos nuestro trabajo en valores sólidos: integridad, cercanía y
+            eficiencia. Estos principios guían cada producto y servicio que
+            ofrecemos.
+          </p>
+        </div>
+      </section>
+
+      <!-- Sección de productos (diario y semanal) -->
+      <section id="productos" class="products">
+        <div class="container">
+          <h2>Productos de Inversión</h2>
+          <div class="product-grid">
+            <!-- Producto Diario -->
+            <article class="product-card">
+              <div class="icon" aria-hidden="true">
+                <!-- Icono personalizado para el producto diario -->
+                <img
+                  src="images/icon-daily.png"
+                  alt="Ícono de calendario diario"
+                  loading="lazy"
+                />
+              </div>
+              <h3>Producto Diario</h3>
+              <p>
+                Obtén rendimientos diarios con nuestro instrumento de inversión
+                de corto plazo. Diseñado para quienes buscan liquidez
+                inmediata sin sacrificar el crecimiento.
+              </p>
+              <a href="#contacto" class="btn-secondary"
+                >Solicitar información</a
+              >
+            </article>
+            <!-- Producto Semanal -->
+            <article class="product-card">
+              <div class="icon" aria-hidden="true">
+                <!-- Icono personalizado para el producto semanal -->
+                <img
+                  src="images/icon-weekly.png"
+                  alt="Ícono de calendario semanal"
+                  loading="lazy"
+                />
+              </div>
+              <h3>Producto Semanal</h3>
+              <p>
+                Ideado para inversionistas que prefieren un horizonte de
+                tiempo ligeramente mayor. Nuestros rendimientos semanales
+                equilibran estabilidad y rentabilidad.
+              </p>
+              <a href="#contacto" class="btn-secondary"
+                >Solicitar información</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección de contacto con formulario -->
+      <section id="contacto" class="contact">
+        <div class="container">
+          <h2>Contacto</h2>
+          <p>
+            ¿Listo para comenzar? Déjanos tus datos y nos pondremos en
+            contacto contigo.
+          </p>
+          <form class="contact-form" onsubmit="return false;" novalidate>
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input
+                type="text"
+                id="nombre"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="tucorreo@ejemplo.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="mensaje">Mensaje</label>
+              <textarea
+                id="mensaje"
+                rows="4"
+                placeholder="Escribe tu mensaje"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn">Enviar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pie de página con información de contacto y enlaces -->
+    <footer>
+      <div class="container footer-grid">
+        <div class="footer-logo">
+          <!-- Logotipo en el pie de página -->
+          <img
+            src="images/logo.jpeg"
+            alt="Logotipo FlexiCapital"
+            class="logo-img"
+          />
+        </div>
+        <nav class="footer-links" aria-label="Enlaces de pie de página">
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <p><i class="fa-solid fa-phone"></i> +52 (444) 123-4567</p>
+          <p>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@flexicapital.mx">info@flexicapital.mx</a>
+          </p>
+          <p>
+            <i class="fa-solid fa-location-dot"></i>
+            Soledad de Graciano Sánchez, San Luis Potosí, México
+          </p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          © <span id="year"></span> FlexiCapital. Todos los derechos
+          reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Script principal -->
+    <script src="scripts.js"></script>
+  </body>
+</html>
